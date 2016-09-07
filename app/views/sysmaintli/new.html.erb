@@ -1,0 +1,28 @@
+<p>New</p>
+<p>Menu: <%= params[:p1] %></p>
+<p>Warehouse Delivery Date: <%= params[:p2] %></p>
+<p>Staus: <%= params[:p3] %></p>
+
+<table>
+  <col style="width:20%">
+  <col style="width:50%">
+  <col style="width:30%">
+  <tr>
+    <th>CATEGORY</th>
+    <th>ITEM</th>
+    <th>DESCRIPTION</th>
+  </tr>
+</table>
+
+<p>No items assigned to menu cycle....</p>
+
+<br>
+<%= form_for :menuli, url: sysmaintli_index_path do |f| %>    
+    <p><%= f.hidden_field :mcode, :value=>params[:p1] %></p>
+    <p><%= f.hidden_field :dte, :value=>params[:p2] %></p>
+    <p>Category: <%= f.text_field :category %></p>
+    <p>Item: <%= f.text_field :item %></p>
+    <p>Description: <%= f.text_field :itemdesc %></p>
+    <p><%= f.submit %></p>
+<% end %>
+
