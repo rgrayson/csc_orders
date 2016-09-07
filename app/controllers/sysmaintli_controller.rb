@@ -40,5 +40,10 @@ end
 def edit
  @t1=Cscmenuli.where("mcode = ? and dte = ?", params[:p1],params[:p2]).order("category","itemdesc")
 end
+
+def update
+
+end
+
    
 end
