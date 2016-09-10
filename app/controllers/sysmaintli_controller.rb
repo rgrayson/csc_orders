@@ -38,12 +38,16 @@ def new
 end
 
 def edit
- @t1=Cscmenuli.where("mcode = ? and dte = ?", params[:p1],params[:p2]).order("category","itemdesc")
+  #render html: params[:p4]
+  #All params set by show.html and paased to edit html
 end
 
 def update
-
+render html: params[:p4]
 end
+
+
+
 
    
 end

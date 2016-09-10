@@ -1,4 +1,48 @@
 <p>sysmaintli edit</p>
 
+<p>Id: <%=params[:id]%></p>
 
-<%= link_to 'SAVE',  new_sysmaint_path %> 
+<table>
+    <tr>
+        <td>Menu:</td>
+        <td><%= text_field_tag("mcode",params[:p1], disabled: true) %></td> 
+        <td>Delivery Date:</td>
+        <td><%= text_field_tag("dte",params[:p2], disabled: true) %></td> 
+    </tr>
+    
+</table>
+
+<br>
+<p>Change to:</p>
+
+<%= form_for :editli do |f| %>    
+    <table>
+        <tr>
+            <td>Category:</td>
+            <td><%= f.text_field :category, :value=>params[:p6] %></td>
+        </tr>    
+        <tr>
+            <td>Item:</td>
+            <td><%= f.text_field :item, :value=>params[:p4] %></td>
+            </tr>    
+        <tr>
+            <td>Description:</td>
+            <td><%= f.text_field :itemdesc, :value=>params[:p5] %></td>
+        </tr>    
+        
+        <tr>
+            <%= f.submit "SAVE" %> 
+        </tr>
+        
+        
+    </table>
+<%end%>
+
+    <br>
+
+
+
+<!--
+<%= link_to 'SAVE', {controller: "sysmaintli", action: "update", id: params[:id]} %>
+-->
+
