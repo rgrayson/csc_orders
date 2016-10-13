@@ -1,7 +1,5 @@
 <p>sysmaintli edit</p>
 
-<p>Id: <%=params[:id]%></p>
-
 <table>
     <tr>
         <td>Menu:</td>
@@ -15,7 +13,7 @@
 <br>
 <p>Change to:</p>
 
-<%= form_for :editli do |f| %>    
+<%= form_for :editli, url:{:controller=>'sysmaintli', :action=>'update'}, html:{method:'patch'} do |f| %>    
     <table>
         <tr>
             <td>Category:</td>
@@ -31,18 +29,18 @@
         </tr>    
         
         <tr>
-            <%= f.submit "SAVE" %> 
-        </tr>
+            <td><%= f.hidden_field :id, :value=>params[:id] %></td>
+            <td><%= f.hidden_field :mcode, :value=>params[:p1] %></td>
+            <td><%= f.hidden_field :dte, :value=>params[:p2] %></td>
+        </tr>  
         
-        
-    </table>
+        </table>
+    
+    <%= f.submit "SAVE" %> 
+    
 <%end%>
 
     <br>
 
 
-
-<!--
-<%= link_to 'SAVE', {controller: "sysmaintli", action: "update", id: params[:id]} %>
--->
-
+<%= link_to 'Back',  sysmaintli_path %> 

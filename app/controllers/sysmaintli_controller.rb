@@ -38,12 +38,24 @@ def new
 end
 
 def edit
-  #render html: params[:p4]
-  #All params set by show.html and paased to edit html
+  #all params set by show.html and passed to edit.html
 end
 
 def update
-render html: params[:p4]
+
+#validate data
+
+  
+@t=Cscmenuli.find(params[:editli][:id])
+  @t.item=params[:editli][:item]
+  @t.itemdesc=params[:editli][:itemdesc]
+  @t.category=params[:editli][:category]
+  @t.save
+
+redirect_to url_for(:controller => :sysmaintli, :action => :show,
+                        p1: params[:editli][:mcode], p2: params[:editli][:dte])
+
+  
 end
 
 
